@@ -18,7 +18,7 @@
   			
   			function doCheckStuff() {
   				if (!navigator.geolocation) {
-  					$("#alertbox").html("<p>Sorry, but your browser does not support geolocation, thus this will not work.");
+  					$("#infoStuff").html("<p>Sorry, but your browser does not support geolocation, thus this will not work.");
   					return;
   				}
   				
@@ -57,7 +57,7 @@
   										city_name: weather.name
   									});
   							
-  									$("#alertbox").html(totalResponse);
+  									$("#infoStuff").html(totalResponse);
   								}
   							});
   						}
@@ -71,6 +71,6 @@
     </script>
   </head>
   <body>
-    <p id="alertbox">Hold tight, getting your information!</p>
+    <p id="infoStuff">Hold tight, getting your information!</p>
   </body>
 </html>
