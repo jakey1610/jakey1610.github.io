@@ -1,58 +1,78 @@
 <html>
-  <script type="text/javascript">
-  <!--
-  	var currentTime = new Date()
-  	var hours = currentTime.getHours()
-  	var minutes = currentTime.getMinutes()
-  
-  	if (minutes < 10)
-  	minutes = "0" + minutes
-  
-  	document.write("<b>" + hours + ":" + minutes + " " + "</b>")
-  //-->
-  
-  function getLocation() {
-    if(navigator.geolocation {
-      navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-    } else {
-      alert("Geolocation is not supported by this browser.");
-      }
-    }
-    function geoSuccess(position) {
-      var lat = position.coords.latitude;
-      var lng = position.coords.longitude;
-      alert("lat:" + lat + " lng:" + lng);
-    }
-    function geoError() {
-      alert("Geocoder failed.");
-    }
-    function geoSuccess(position) {
-      var lat = position.coords.latitude;
-      var lng = position.coords.longitude;
-      alert("lat:" + lat + " lng:" + lng);
-      codeLatLng(lat, lng);
-    }
-    var geocoder;
-    function initialize() {
-      geocoder = new google.maps.Geocoder();
-    }
-    function codeLatLng(lat, lng) {
-    var latlng = new google.maps.LatLng(lat, lng);
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-      if(status == google.maps.GeocoderStatus.OK) {
-          console.log(results)
-          if(results[1]) {
-              //formatted address
-              var address = results[0].formatted_address;
-              alert("address = " + address);
-          } else {
-              alert("No results found");
-          }
-        } else {
-          alert("Geocoder failed due to: " + status);
-        }
-      });
-    }
-  </script>
-  
+  <head>
+    <script type="text/javascript">
+    
+  			
+  			var days = {
+  				0: "Sunday",
+  				1: "Monday",
+  				2: "Tuesday",
+  				3: "Wednesday",
+  				4: "Thursday",
+  				5: "Friday",
+  				6: "Saturday"
+  				
+  			};
+  			
+  			function doCheckStuff() {
+  				if (!navigator.geolocation) {
+  					$("#alertbox").html("<p>Sorry, but your browser does not support geolocation, thus this will not work.");
+  					return;
+  				}
+  				
+  				navigator.geolocation.getCurrentPosition(function(pos) {
+  					var lat = pos.coords.latitude;
+  					var long = pos.coords.longitude;
+  					
+  					$.ajax({
+  						url: "template.html",
+  						success: function(f, g, templObj) {
+  							var mustacheTemplate = templObj.responseText;
+  							
+  							$.ajax({
+  								url: "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long,
+  								success: function(a, b, obj) {
+  									var txt = obj.responseText;
+  							
+  									var weather = JSON.parse(txt);
+  							
+  									var descObject = weather.weather[0];
+  							
+  									var desc = descObject.description;
+  									var high = weather.main.temp_max - 273.15;
+  									var low = weather.main.temp_min - 273.15;
+  									
+  									var d = new Date();
+  									var timeString = d.toLocaleTimeString();
+  									var day = d.getDay();
+  									
+  									var totalResponse = Mustache.render(mustacheTemplate, {
+  										time: timeString,
+  										weather_desc: desc,
+  										temp_high: high,
+  										temp_low: low,
+  										day_of_week: days[day],
+  										city_name: weather.name
+  									});
+  							
+  									$("#alertbox").html(totalResponse);
+  								}
+  							});
+  						}
+  					});
+  					
+  				});
+  			}
+  			$(navigator).ready(doCheckStuff);
+  			setInterval(doCheckStuff, 10000);
+  		
+    </script>
+  </head>
+  <body>
+    <p id="alertbox"><p>Hello.
+    <br>The time is currently 7:20:14 PM.
+    <br>The weather is Sky is Clear with highs of 10°C and lows of 6°C in Barnsley.
+    <br>Today is a Thursday.</p>
+    </p>
+  </body>
 </html>
