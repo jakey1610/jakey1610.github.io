@@ -1,10 +1,18 @@
+<!DOCTYPE html>
 <html>
   <head>
-      <link rel = "stylesheet" type = "text/css" href = "mainstyle.css" />
-      <script src = "moment.js"></script>
-      <script src = "moment+locales.js"></script>
+    <link type = "text/css" rel = "stylesheet" href = "stylesheet.css">
+    <script src = "main.js"></script>
+    <title>Timetable</title>
   </head>
-  <body>
-    Stop looking at meh!
+  <body onload = "dotw(); startTime(); checkTime(); greet();">
+    <center>
+    <div id = "timetablecont">
+      <p id = "greeting"></p>
+      <p id = "dotw"></p>
+      <p id = "time"></p>
+      <p id = "timetable"></p>
+    </div>
+    </center>
   </body>
 </html>
