@@ -50,15 +50,11 @@ function greet(){
     document.getElementById("greeting").innerHTML = greeting;
 }
 
-  $("#greeting").hide()
-    $("#dotw").hide()
-    $("#time").hide()
-    $("#timetable").hide()
-$("body").click(function(){   
-    $("#greeting").hide().fadeIn(1000);
-    $("#dotw").hide().fadeIn(3000);
-    $("#time").hide().fadeIn(5000);
-    $("#timetable").hide().fadeIn(7000);
+$(function(){   
+    $("#greeting").hide().fadeIn(3000);
+    $("#dotw").hide().fadeIn(5000);
+    $("#time").hide().fadeIn(7000);
+    $("#timetable").hide().fadeIn(9000);
 });
 
 $(function(){   
