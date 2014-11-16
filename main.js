@@ -50,6 +50,10 @@ function greet(){
     document.getElementById("greeting").innerHTML = greeting;
 }
 
+  $("#greeting").hide()
+    $("#dotw").hide()
+    $("#time").hide()
+    $("#timetable").hide()
 $("body").click(function(){   
     $("#greeting").hide().fadeIn(1000);
     $("#dotw").hide().fadeIn(3000);
