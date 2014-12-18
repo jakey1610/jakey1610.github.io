@@ -1,5 +1,5 @@
-html{
-
+body{
+	
 }
 #greeting{
   color:#5f5c5b;
@@ -23,5 +23,42 @@ html{
   color:#c92213;
   font-family: Century Gothic, sans-serif;
   font-size: 30px;
+  font-weight: 10;
+}
+button {
+  width:100px;
+  height:50px;
+  display:inline-block;
+  font-family: Century Gothic, sans-serif;
+  font-size:16px;
+  font-weight:bold;
+  color:#fff;
+  text-decoration:none;
+  text-transform:uppercase;
+  text-align:center;
+  text-shadow:1px 1px 0px #822f2f;
+  padding-top:6px;
+  margin-left:auto;
+  margin-right:auto;
+  
+  position:relative;
+  cursor:pointer;
+  border: none;
+  background: #c92213;
+  background-image: linear-gradient(bottom, rgb(14,137,182) 0%, rgb(22,179,236) 100%);
+  border-radius: 5px;
+  box-shadow: inset 0px 1px 0px #ed1a1a, 0px 5px 0px 0px #822f2f, 0px 10px 5px #999;
+}
+button:active {
+  top:3px;
+  box-shadow: inset 0px 1px 0px #ed1a1a, 0px 2px 0px 0px #822f2f, 0px 5px 3px #999;
+}
+.buttonweek:focus{
+  outline:0;
+}
+#welc{
+  color:#416e96;
+  font-family: Century Gothic, sans-serif;
+  font-size: 20px;
   font-weight: 10;
 }
