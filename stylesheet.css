@@ -1,5 +1,8 @@
 body{
-
+  
+}
+#main_head #second_head{
+  font-family: 'Great Vibes', cursive;
 }
 #wrapper{
   width:35%;
