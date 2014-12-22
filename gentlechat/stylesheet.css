@@ -10,6 +10,7 @@ body{
   font-size:40px;
 }
 #wrapper{
+  border-top: solid 1px #D3D3D3;
   width:35%;
 }
 li{
