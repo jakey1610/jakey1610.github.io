@@ -1,7 +1,10 @@
 body{
   
 }
-#main_head #second_head{
+#main_head{
+  font-family: 'Great Vibes', cursive;
+}
+#second_head{
   font-family: 'Great Vibes', cursive;
 }
 #wrapper{
