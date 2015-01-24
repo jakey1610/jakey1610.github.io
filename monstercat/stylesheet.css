@@ -4,5 +4,7 @@
 }
 #stream1{
   height:500px;
-  width:1000px;
+  width:900px;
+  margin-top: -500px;
+  margin-left: 75%;
 }
