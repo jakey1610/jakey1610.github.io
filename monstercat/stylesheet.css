@@ -1,4 +1,8 @@
-iframe{
+#chat1{
   height:900px;
   width:100%;
+}
+#stream1{
+  height:500px;
+  width:1000px;
 }
