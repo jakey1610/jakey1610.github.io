@@ -1,0 +1,3 @@
+function validateForm(){
+	alert("HELLO!");
+}
