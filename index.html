@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel = "stylesheet" type = "text/css" href = "css/stylesheet.css" />
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src = "js/js-easing.js"></script>
+		<script src = "js/main.js"></script>
+		<script>
+			$(function(){
+				$("#b1").click(function(){
+					$("html, body").animate({"scrollTop": $("#anchor1").offset().top}, 1000,"easeOutExpo")
+				});
+				$("#b2").click(function(){
+					$("html, body").animate({"scrollTop": 0},1000,"easeOutExpo")
+				});
+				$("#b3").click(function(){
+					$("html, body").animate({"scrollLeft": $("#anchor3").offset().left}, 3000,"easeOutExpo")
+				});
+				$("#b4").click(function(){
+					$("html, body").animate({"scrollLeft": 0}, 1000,"easeOutExpo")
+				});
+			});
+		</script>
+		
+		<link rel="icon" href="img/Jakey1610_Main.png" type="image/x-icon" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<div id = "main">
+			<a id = "anchor2"></a>
+			<img id = "background" src = "img/sublime-text-3.png" />
+			
+				<h1 id = "overlay">Jake Mortimer</h1>
+				<h1 id = "overlay2">Web-Designer</h1>
+			<center>
+				<a id = "b3" href = "#anchor3"><img id = "favi3" src = "img/arrowright.png"></a>
+				<a id = "b1" href ="#anchor1"><img id = "favi1" src = "img/arrow.png"></a>
+			</center>
+
+		</div>
+
+		<!--Move to the right-->
+		<div id = "hire_request">
+			<a id = "anchor3"></a>
+			<br /><br /><br /><br /><br /><br />
+
+			<center>
+				<h1 id = "hire_me">Hire Request : </h1>
+				<form id = "hire" >
+					<label>Forename : </label> <input id = "fname" name = "fname" /><br /><br />
+					<label>Surname : </label><input id = "sname" name = "sname" /><br /><br />
+					<label>Email : </label><input id = "email" name = "email" /><br /><br />
+					<label>Phone Number : </label><input id = "pnumber" name = "pnumber" /><br /><br />
+					
+					<input type = "submit" value = "Send" onclick = "validateForm()"/>
+					<p><u>Form not working at the moment.</u></p>
+				</form>
+			</center>
+			<a id = "b4" href = "#anchor2"><img id = "favi4" src = "img/arrowleft.png"></a>
+		</div>
+		<div id = "web_panel">
+			<a id = "anchor1"></a>	
+			<h1 id = "title"><u>Websites : </u></h1>
+			
+			<!--PANEL STARTS HERE-->
+		
+			<div id = "panel1"></div>
+			<div id = "panel2"></div>
+			<div id = "panel3"></div>
+			<div id = "panel4"></div>
+		
+
+			<!--PANEL ENDS HERE-->
+			
+			<center>
+				<a id = "b2" href = "#anchor2"><img id = "favi2" src = "img/arrowup.png"></a>
+			</center>
+		</div>
+	</body>
+</html>
